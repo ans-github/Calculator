@@ -5,6 +5,11 @@ import os
 
 #Things to include: 
 
+#calculation combo
+#exit options
+#update if statements
+#
+
 
 def menu_message():
     print("""
@@ -13,23 +18,51 @@ def menu_message():
     [2] Exit Application
     """)
 
-def calculator_message():
-    print("""
-    Please Enter your first number: 
-    """)
-    first_input()
-    calculator_options()
+def menu_selection():
+    in_put = int(input("Please select from the menu options by inputting a value: "))
+    if in_put == int(1):
+        calculator_options()
+    elif in_put == int(2):
+        print("Thank you for using calculator, closing...")
 
-def first_input():
-    return first_input = float(input("Enter number here: "))
+def general_input():
+    int(input("Please enter your number: "))
+
 
 def calculator_options():
-    calc_input = str(input("Please type and press enter for type of calculation you wish to use e.g. +,-,*,/: "))
-    if calc_input = "+":
-        addition()
-    elif calc_input = "-":
-        subtraction()
-    elif 
+    calc_input = str(input("Please type and press enter for type of calculation you wish to use e.g. + - * / or exponent: "))
+    if calc_input == "+":
+        first_input = float(input("please enter your first number: "))
+        second_input = float(input("please enter your second number: "))
+        print(addition(first_input,second_input))
+        input("Please press any key to return to menu")
+        calculator_options()
+    elif calc_input == "-":
+        first_input = float(input("please enter your first number: "))
+        second_input = float(input("please enter your second number: "))
+        print(subtraction(first_input,second_input))
+        input("Please press any key to return to menu")
+        calculator_options()
+    elif calc_input == "*":
+        first_input = float(input("please enter your first number: "))
+        second_input = float(input("please enter your second number: "))
+        print(multiplication(first_input,second_input))
+        input("Please press any key to return to menu")
+        calculator_options()
+    elif calc_input == "/":
+        first_input = float(input("please enter your first number: "))
+        second_input = float(input("please enter your second number: "))
+        print(division(first_input,second_input))
+        input("Please press any key to calculation options")
+        calculator_options()
+    elif calc_input == "exponent":
+        exponent()
+        input("Please press any key to return to menu")
+        calculator_options()
+    else: 
+        print("None of which you have typed corresponds with the selection..")
+        calculator_options()
+    
 
 def addition(a,b):
     return a + b
@@ -49,15 +82,10 @@ def exponent():
     apply_power = first_input() ** second_inp 
     print(apply_power)
 
-def menu_selection():
-    in_put = input("Please select from the menu options by inputting a value: ")
-    if in_put = int(1):
-        print(calculator_message())
-    else in_put = int(6):
-        print("Thank you for using calculator, closing...")
-    
-
 
 
 def clear_screen():
     os.system("clear")
+
+menu_message()
+menu_selection()
