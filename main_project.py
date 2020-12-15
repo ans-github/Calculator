@@ -30,7 +30,7 @@ def general_input():
 
 
 def calculator_options():
-    calc_input = str(input("Please type and press enter for type of calculation you wish to use e.g. + - * / or exponent: "))
+    calc_input = str(input("Please type and press enter for type of calculation you wish to use e.g. + - * / exponent or exit to return to menu: "))
     if calc_input == "+":
         first_input = float(input("please enter your first number: "))
         second_input = float(input("please enter your second number: "))
@@ -59,6 +59,10 @@ def calculator_options():
         exponent()
         input("Please press any key to return to menu")
         calculator_options()
+    elif calc_input == "exit":
+        clear_screen()
+        menu_message()
+        menu_selection()
     else: 
         print("None of which you have typed corresponds with the selection..")
         calculator_options()
@@ -77,11 +81,10 @@ def multiplication(a,b):
     return a * b
 
 def exponent():
-    first_input()
-    second_inp = input("Please enter the number you would like to apply to the power of: ")
-    apply_power = first_input() ** second_inp 
+    first_inp = float(input("Please enter the number you wish to use for this calculation: "))
+    second_inp = float(input("Please enter the second number you would like to apply to the power of: "))
+    apply_power = first_inp ** second_inp 
     print(apply_power)
-
 
 
 def clear_screen():
